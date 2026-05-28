@@ -1,6 +1,6 @@
 @import "tailwindcss" source(none);
-@source "../src";
 @import "tw-animate-css";
+@source "../src";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -154,3 +154,4 @@
 ::-webkit-scrollbar { width: 10px; }
 ::-webkit-scrollbar-track { background: oklch(0.12 0.03 270); }
 ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #7c3aed, #3b82f6); border-radius: 10px; }
+
