@@ -18,13 +18,18 @@ export function Contact() {
     } catch {}
   };
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Portfolio contact from ${form.name}`);
-    const body = encodeURIComponent(`${form.message}\n\n— ${form.name}\n${form.email}`);
-    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
-    setSent(true);
-    setTimeout(() => setSent(false), 3500);
+    const res = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    });
+    if (res.ok) {
+      setSent(true);
+      setForm({ name: "", email: "", message: "" });
+      setTimeout(() => setSent(false), 3500);
+    }
   };
 
   return (
@@ -160,3 +165,4 @@ export function Contact() {
     </Section>
   );
 }
+
