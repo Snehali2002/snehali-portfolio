@@ -18,18 +18,11 @@ export function Contact() {
     } catch {}
   };
 
-  const submit = async (e: React.FormEvent) => {
+  const submit = (e: React.FormEvent) => {
     e.preventDefault();
-    const res = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
-    });
-    if (res.ok) {
-      setSent(true);
-      setForm({ name: "", email: "", message: "" });
-      setTimeout(() => setSent(false), 3500);
-    }
+    window.open("https://docs.google.com/forms/d/e/1FAIpQLSfHUrGDDetPdULFbcxFDuUikBFUfEt2FuRQNsV8V3_BdP50dg/viewform", "_blank");
+    setSent(true);
+    setTimeout(() => setSent(false), 3500);
   };
 
   return (
@@ -165,5 +158,6 @@ export function Contact() {
     </Section>
   );
 }
+
 
 
