@@ -4,6 +4,8 @@ import { RouterProvider } from '@tanstack/react-router'
 import { getRouter } from './router'
 import './styles.css'
 
+document.documentElement.classList.add('dark')
+
 const router = getRouter()
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
